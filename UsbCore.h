@@ -54,6 +54,8 @@ typedef MAX3421e<P33, P15> MAX3421E;
 #else
 typedef MAX3421e<P5, P17> MAX3421E; // ESP32 boards
 #endif
+#elif defined(ARDUINO_ADAFRUIT_FEATHER_RP2040)
+typedef MAX3421e<P10, P9> MAX3421E;
 #elif defined(MIGHTYCORE)
 typedef MAX3421e<Pb4, Pb3> MAX3421E; // MightyCore
 #elif (defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__))

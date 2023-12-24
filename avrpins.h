@@ -1438,6 +1438,34 @@ MAKE_PIN(P33, (9));
 
 #undef MAKE_PIN
 
+#elif defined(ARDUINO_ADAFRUIT_FEATHER_RP2040)
+#define MAKE_PIN(className, pin) \
+class className { \
+public: \
+  static void Set() { \
+    digitalWrite(pin, HIGH);\
+  } \
+  static void Clear() { \
+    digitalWrite(pin, LOW); \
+  } \
+  static void SetDirRead() { \
+    pinMode(pin, INPUT); \
+  } \
+  static void SetDirWrite() { \
+    pinMode(pin, OUTPUT); \
+  } \
+  static uint8_t IsSet() { \
+    return digitalRead(pin); \
+  } \
+};
+
+MAKE_PIN(P18, 18);  // SCK
+MAKE_PIN(P19, 19);  // MOSI
+MAKE_PIN(P20, 20);  // MISO
+MAKE_PIN(P10, 10);  // CS
+MAKE_PIN(P9,   9);  // IRQ/INT
+
+#undef MAKE_PIN
 #else
 #error "Please define board in avrpins.h"
 

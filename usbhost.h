@@ -125,6 +125,8 @@ typedef SPi< P5, P18, P19, P33 > spi;
 #else
 typedef SPi< P18, P23, P19, P5 > spi;
 #endif
+#elif defined(ARDUINO_ADAFRUIT_FEATHER_RP2040)
+typedef SPi< P18, P19, P20, P10 > spi;
 #elif defined(ARDUINO_NRF52840_FEATHER)
 typedef SPi< P26, P25, P24, P5 > spi;
 #else
