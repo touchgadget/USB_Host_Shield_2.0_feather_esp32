@@ -119,7 +119,12 @@ typedef SPi< P16, P18, P17, P10 > spi;
 #elif defined(ESP8266)
 typedef SPi< P14, P13, P12, P15 > spi;
 #elif defined(ESP32)
+// (CLK, MOSI, MISO, CS)
+#ifdef ARDUINO_FEATHER_ESP32
+typedef SPi< P5, P18, P19, P33 > spi;
+#else
 typedef SPi< P18, P23, P19, P5 > spi;
+#endif
 #elif defined(ARDUINO_NRF52840_FEATHER)
 typedef SPi< P26, P25, P24, P5 > spi;
 #else
